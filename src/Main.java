@@ -26,7 +26,6 @@ public class Main {
         }
         return b;
     }
-
     public static Subject extract_subject_data(ArrayList<String> temp)
     {
 
@@ -129,7 +128,7 @@ public class Main {
                 }
 
             }
-            if( count4==0 )
+            if( count4==0 && arrOfStr1[1].length()==8)
             {
                 s.Student_number=arrOfStr1[1];
             }
