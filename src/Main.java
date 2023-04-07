@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
-public class Main {
-    public static ArrayList<String> read_input(){
+public class  Main {
+    public static ArrayList<String> read_input(String path){
         ArrayList<String> b = new ArrayList<>();
         try {
-            File myObj = new File("D:\\3rd_year\\SW-Testing-project-\\out\\production\\SW-Testing-project-\\New Text Document.txt");
+            File myObj = new File(path);
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -216,7 +216,7 @@ public class Main {
     public static void main(String[] args)
     {
         ArrayList<String> temp;
-        temp=read_input();
+        temp=read_input("D:\\3rd_year\\SW-Testing-project-\\src\\New Text Document.txt");
         Subject s1=extract_subject_data( temp);
         System.out.println(s1.subject_name);
         System.out.println(s1.subject_code);
