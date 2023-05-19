@@ -12,7 +12,7 @@ public class Student {
     private int midterm_mark;
     private int final_mark;
     private double gpa;
-    
+
     public void calcGpa() {
         int totalMarks = this.activities_mark + this.final_mark + this.midterm_mark + this.Oral_Practical_mark;
         if (totalMarks >= 93) this.gpa = 4;
@@ -27,24 +27,6 @@ public class Student {
         else if (totalMarks >= 60) this.gpa = 1.0;
         else this.gpa = 0.0;
     }
-    // TODO: 4/7/2023
-    public void displayStudentInfo(){
-//        System.out.println(s1.getSubject_name());
-//        System.out.println(s1.getSubject_code());
-//        System.out.println(s1.getFull_mark());
-//        System.out.println("**********************************");
-//
-//        ArrayList<Student> studentsList = s1.getStudentsList();
-//        for (int i = 0; i < studentsList.size(); i++) {
-//            System.out.println("STUDENT NAME:  " + studentsList.get(i).getStudent_name());
-//            System.out.println("STUDENT NUMBER :  " + studentsList.get(i).getStudent_number());
-//            System.out.println("STUDENT ACTIVITIES:  " + studentsList.get(i).getActivities_mark());
-//            System.out.println("STUDENT ORAL:  " + studentsList.get(i).getOral_Practical_mark());
-//            System.out.println("STUDENT MID:  " + studentsList.get(i).getMidterm_mark());
-//            System.out.println("STUDENT FINAL:  " + studentsList.get(i).getFinal_mark());
-//            System.out.println("**********************************");
-//        }
-        }
 
     public String getStudent_name() {
         return student_name;
