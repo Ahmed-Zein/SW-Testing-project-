@@ -12,6 +12,13 @@ public class Subject {
         this.studentsList = new ArrayList<>();
     }
 
+    public Subject(String subject_name, String subject_code, int full_mark) {
+        this.subject_name = subject_name;
+        this.subject_code = subject_code;
+        this.full_mark = full_mark;
+        this.studentsList = new ArrayList<>();
+    }
+
     public void addStudent(Student student) {
         this.studentsList.add(student);
     }

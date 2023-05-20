@@ -14,19 +14,15 @@ class FileManagerTest {
     @Test
     public void testReadLines1() {
         FileManager file = new FileManager("src/tests/testFiles/fileNotFound.txt");
-        Exception exception = assertThrows(FileNotFoundException.class, () -> {
-            file.parseSubjectFile();
-        });
+        Exception exception = assertThrows(FileNotFoundException.class, file::parseSubjectFile);
 
-        assertEquals(exception.getClass(), new FileNotFoundException().getClass());
+        assertEquals(exception.getClass(), FileNotFoundException.class);
     }
 
     @Test
     public void testReadLines2() {
         FileManager file = new FileManager("src/tests/testFiles/emptyFile.txt");
-        Exception exception = assertThrows(Exception.class, () -> {
-            file.parseSubjectFile();
-        });
+        Exception exception = assertThrows(Exception.class, file::parseSubjectFile);
         String expectedMessage = "File is empty";
         String actualMessage = exception.getMessage();
         assertEquals(actualMessage, expectedMessage);
@@ -36,9 +32,7 @@ class FileManagerTest {
     @Test
     public void testcase1() {
         FileManager file = new FileManager("src/tests/testFiles/testcase1.txt");
-        Exception exception = assertThrows(Exception.class, () -> {
-            file.parseSubjectFile();
-        });
+        Exception exception = assertThrows(Exception.class, file::parseSubjectFile);
         String expectedMessage = "wrong student number format";
         String actualMessage = exception.getMessage();
         assertEquals(actualMessage, expectedMessage);
@@ -47,7 +41,7 @@ class FileManagerTest {
     @Test
     public void testcase2() {
         FileManager file = new FileManager("src/tests/testFiles/testcase2.txt");
-        Exception exception = assertThrows(Exception.class, () -> file.parseSubjectFile());
+        Exception exception = assertThrows(Exception.class, file::parseSubjectFile);
         String expectedMessage = "wrong student name format";
         String actualMessage = exception.getMessage();
         assertEquals(actualMessage, expectedMessage);
@@ -56,9 +50,7 @@ class FileManagerTest {
     @Test
     public void testcase3() {
         FileManager file = new FileManager("src/tests/testFiles/testcase3.txt");
-        Exception exception = assertThrows(Exception.class, () -> {
-            file.parseSubjectFile();
-        });
+        Exception exception = assertThrows(Exception.class, file::parseSubjectFile);
         String expectedMessage = "wrong student name format";
         String actualMessage = exception.getMessage();
         assertEquals(actualMessage, expectedMessage);
@@ -67,9 +59,7 @@ class FileManagerTest {
     @Test
     public void testcase4() {
         FileManager file = new FileManager("src/tests/testFiles/testcase4.txt");
-        Exception exception = assertThrows(Exception.class, () -> {
-            file.parseSubjectFile();
-        });
+        Exception exception = assertThrows(Exception.class, file::parseSubjectFile);
         String expectedMessage = "wrong student number format";
         String actualMessage = exception.getMessage();
         assertEquals(actualMessage, expectedMessage);
@@ -78,9 +68,7 @@ class FileManagerTest {
     @Test
     public void testcase5() {
         FileManager file = new FileManager("src/tests/testFiles/testcase5.txt");
-        Exception exception = assertThrows(Exception.class, () -> {
-            file.parseSubjectFile();
-        });
+        Exception exception = assertThrows(Exception.class, file::parseSubjectFile);
         String expectedMessage = "wrong Activities_mark format";
         String actualMessage = exception.getMessage();
         assertEquals(actualMessage, expectedMessage);
@@ -90,9 +78,7 @@ class FileManagerTest {
     @Test
     public void testcase6() {
         FileManager file = new FileManager("src/tests/testFiles/testcase6.txt");
-        Exception exception = assertThrows(Exception.class, () -> {
-            file.parseSubjectFile();
-        });
+        Exception exception = assertThrows(Exception.class, file::parseSubjectFile);
         String expectedMessage = "wrong student number format";
         String actualMessage = exception.getMessage();
         assertEquals(actualMessage, expectedMessage);
@@ -102,9 +88,7 @@ class FileManagerTest {
     @Test
     public void testcase7() {
         FileManager file = new FileManager("src/tests/testFiles/testcase7.txt");
-        Exception exception = assertThrows(Exception.class, () -> {
-            file.parseSubjectFile();
-        });
+        Exception exception = assertThrows(Exception.class, file::parseSubjectFile);
         String expectedMessage = "wrong final exam mark format";
         String actualMessage = exception.getMessage();
         assertEquals(actualMessage, expectedMessage);
@@ -114,9 +98,7 @@ class FileManagerTest {
     public void testcase8() {
 
         FileManager file = new FileManager("src/tests/testFiles/testcase8.txt");
-        Exception exception = assertThrows(Exception.class, () -> {
-            file.parseSubjectFile();
-        });
+        Exception exception = assertThrows(Exception.class, file::parseSubjectFile);
         String expectedMessage = "wrong subject code format";
         String actualMessage = exception.getMessage();
         assertEquals(actualMessage, expectedMessage);
