@@ -28,11 +28,7 @@ public class FileManager {
     private FileManager() {
     }
 
-    public Subject parseSubjectFile() throws Exception {
-        return extractData();
-    }
-
-    private ArrayList<String> readLines() throws Exception {
+    public ArrayList<String> readLines() throws Exception {
         ArrayList<String> b = new ArrayList<>();
         try {
             Scanner myReader = new Scanner(file);
@@ -44,15 +40,14 @@ public class FileManager {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
             throw e;
         }
         if (b.isEmpty())
-            throw new Exception("File was empty");
+            throw new Exception("File is empty");
         return b;
     }
 
-    private Subject extractData() throws Exception {
+    public Subject parseSubjectFile() throws Exception {
         ArrayList<String> fileContents = readLines();
         Subject subject = new Subject();
         String[] subjectHeader = fileContents.get(0).split(",");
@@ -61,17 +56,16 @@ public class FileManager {
         String subjectCode = subjectHeader[1];
         int subjectMarks = parseInt(subjectHeader[2]);
 
-        if (validator.validateSubjectName(subjectName) &&
-                validator.validateSubjectCode(subjectCode) &&
-                validator.validateSubjectMark(subjectMarks)) {
-            subject.setSubject_name(subjectName);
-            subject.setSubject_code(subjectCode);
-            subject.setFull_mark(subjectMarks);
-        } else {
-            throw new Exception("Subject data is incorrect");
-        }
+        validator.validateSubjectName(subjectName);
+        validator.validateSubjectCode(subjectCode);
+        validator.validateSubjectMark(subjectMarks);
+
+        subject.setSubject_name(subjectName);
+        subject.setSubject_code(subjectCode);
+        subject.setFull_mark(subjectMarks);
 
         for (int i = 1; i < fileContents.size(); i++) {
+
             String[] studentData = fileContents.get(i).split(",");
 
             String studentName = studentData[0];
@@ -81,25 +75,24 @@ public class FileManager {
             int midterm = parseInt(studentData[4]);
             int finals = parseInt(studentData[5]);
 
+            validator.validateStudentName(studentName);
+            validator.validateStudentNumber(studentNumber);
+            validator.validateActivitiesMarks(activities);
+            validator.validateOralMarks(oral);
+            validator.validateMidTermMarks(midterm);
+            validator.validateFinalMarks(finals);
+
             Student student = new Student();
-            if (validator.validateStudentName(studentName) &&
-                    validator.validateStudentNumber(studentNumber) &&
-                    validator.validateActivitiesMarks(activities) &&
-                    validator.validateOralMarks(oral) &&
-                    validator.validateMidTermMarks(midterm) &&
-                    validator.validateFinalMarks(finals)) {
 
-                student.setStudent_name(studentName);
-                student.setStudent_number(studentNumber);
-                student.setActivities_mark(activities);
-                student.setOral_Practical_mark(oral);
-                student.setMidterm_mark(midterm);
-                student.setFinal_mark(finals);
+            student.setStudent_name(studentName);
+            student.setStudent_number(studentNumber);
+            student.setActivities_mark(activities);
+            student.setOral_Practical_mark(oral);
+            student.setMidterm_mark(midterm);
+            student.setFinal_mark(finals);
 
-                subject.addStudent(student);
-            } else {
-                throw new Exception("Wrong student data");
-            }
+            subject.addStudent(student);
+
         }
         return subject;
     }

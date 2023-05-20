@@ -12,9 +12,15 @@ public class Student {
     private int midterm_mark;
     private int final_mark;
     private double gpa;
+    private int totalMarks;
+
+    public void calcTotalMarks() {
+        totalMarks = this.activities_mark + this.final_mark + this.midterm_mark + this.Oral_Practical_mark;
+
+    }
 
     public void calcGpa() {
-        int totalMarks = this.activities_mark + this.final_mark + this.midterm_mark + this.Oral_Practical_mark;
+        calcTotalMarks();
         if (totalMarks >= 93) this.gpa = 4;
         else if (totalMarks >= 89) this.gpa = 3.7;
         else if (totalMarks >= 84) this.gpa = 3.3;
@@ -26,6 +32,29 @@ public class Student {
         else if (totalMarks >= 64) this.gpa = 1.3;
         else if (totalMarks >= 60) this.gpa = 1.0;
         else this.gpa = 0.0;
+    }
+
+    public String finalGrade() {
+        if (this.gpa == 4 && totalMarks >= 97) return "A+";
+        else if (this.gpa == 4) return "A";
+        else if (this.gpa == 3.7) return "A-";
+        else if (this.gpa == 3.3) return "B+";
+        else if (this.gpa == 3.0) return "B";
+        else if (this.gpa == 2.7) return "B-";
+        else if (this.gpa == 2.3) return "C+";
+        else if (this.gpa == 2.0) return "C";
+        else if (this.gpa == 1.7) return "C-";
+        else if (this.gpa == 1.3) return "D+";
+        else if (this.gpa == 1.0) return "D";
+        else return "F";
+    }
+
+    public int getSTotalMarks() {
+        return this.totalMarks;
+    }
+
+    public void setSTotalMarks(int t) {
+        this.totalMarks = t;
     }
 
     public String getStudent_name() {

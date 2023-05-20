@@ -9,18 +9,10 @@ public class Subject {
     private ArrayList<Student> studentsList;
 
     public Subject() {
-    }
-
-    public void displayStudentGrades() {
-        System.out.printf("NUMBER OF STUDENTS ENROLLED %s-(%s) = %d%n\n", subject_name, subject_code, studentsList.size());
-        for (int i = 0; i < studentsList.size(); i++) {
-            System.out.println(studentsList.get(i).getStudent_name() + "\t" + studentsList.get(i).getGpa());
-        }
+        this.studentsList = new ArrayList<>();
     }
 
     public void addStudent(Student student) {
-        if (this.studentsList == null)
-            this.studentsList = new ArrayList<>();
         this.studentsList.add(student);
     }
 

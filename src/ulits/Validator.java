@@ -3,7 +3,7 @@ package ulits;
 public class Validator {
     private static Validator validator;
 
-    private Validator() {
+    public Validator() {
     }
 
     public static Validator instance() {
@@ -12,43 +12,71 @@ public class Validator {
         return validator;
     }
 
-    boolean validateSubjectName(String sName) {
-        return isAlphabetical(sName) && !sName.startsWith(" ");
+    public boolean validateSubjectName(String sName) throws Exception {
+        if (!(isAlphabetical(sName) && !sName.startsWith(" "))) {
+            throw new Exception("wrong subject name format");
+        }
+        return true;
     }
 
-    boolean validateSubjectCode(String sCode) {
-        return sCode.length() >= 6 && sCode.matches("[a-zA-Z]{3}[0-9]{3}(s)?");
+    public boolean validateSubjectCode(String sCode) throws Exception {
+        if (!(sCode.length() >= 6 && sCode.matches("[a-zA-Z]{3}[0-9]{3}(s)?"))) {
+            throw new Exception("wrong subject code format");
+        }
+        return true;
     }
 
-    boolean validateSubjectMark(int mark) {
-        return mark == 100;
+    public boolean validateSubjectMark(int mark) throws Exception {
+        if (!(mark == 100)) {
+            throw new Exception("wrong fullmark format");
+        }
+        return true;
     }
 
-    boolean validateStudentName(String sName) {
-        return isAlphabetical(sName) && !sName.startsWith(" ");
+    public boolean validateStudentName(String sName) throws Exception {
+
+        if (!(isAlphabetical(sName) && !sName.startsWith(" "))) {
+            throw new Exception("wrong student name format");
+        }
+        return true;
     }
 
-    boolean validateStudentNumber(String sNumber) {
-        return sNumber.length() == 8 && sNumber.matches("^[0-9]{7}[a-zA-Z]$");
+    public boolean validateStudentNumber(String sNumber) throws Exception {
+        if (!(sNumber.length() == 8 && (sNumber.matches("^[0-9]{8}$") || sNumber.matches("^[0-9]{7}[a-zA-Z]$")) )) {
+            throw new Exception("wrong student number format");
+        }
+        return true;
     }
 
-    boolean validateActivitiesMarks(int mark) {
-        return (mark >= 0) && (mark <= 10);
+    public boolean validateActivitiesMarks(int mark) throws Exception {
+        if (!((mark >= 0) && (mark <= 10))) {
+            throw new Exception("wrong Activities_mark format");
+        }
+        return true;
     }
 
-    boolean validateOralMarks(int mark) {
-        return (mark >= 0) && (mark <= 10);
+    public boolean validateOralMarks(int mark) throws Exception {
+        if (!((mark >= 0) && (mark <= 10))) {
+            throw new Exception("wrong Oral_Practical_mark format");
+        }
+        return true;
     }
 
-    boolean validateMidTermMarks(int mark) {
-        return (mark >= 0) && (mark <= 20);
+    public boolean validateMidTermMarks(int mark) throws Exception {
+        if (!((mark >= 0) && (mark <= 20))) {
+            throw new Exception("wrong Midterm mark format");
+        }
+        return true;
     }
 
-    boolean validateFinalMarks(int mark){
-        return (mark >= 0) && (mark <= 60);
+    public boolean validateFinalMarks(int mark) throws Exception {
+        if (!((mark >= 0) && (mark <= 60))) {
+            throw new Exception("wrong final exam mark format");
+        }
+        return true;
     }
 
-    private   boolean isAlphabetical(String string) {
+    public boolean isAlphabetical(String string) {
         return string.matches("^[a-zA-Z ]+$");
 
     }

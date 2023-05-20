@@ -1,0 +1,9 @@
+Subject Name: English	Max Mark: 100
+Student name         | Student number  | GPA   | GRADE
+Brim stone           | 1234568p        | 3.3   | B+
+Jane Smith           | 1234568p        | 3.3   | B+
+Bob Johnson          | 1234568p        | 4.0   | A
+Alice Lee            | 1234568p        | 2.3   | C+
+Tom Brown            | 1234568p        | 3.0   | B
+Sara Davis           | 1234568p        | 4.0   | A
+David Wilson         | 1234568p        | 3.3   | B+
